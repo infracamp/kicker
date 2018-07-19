@@ -1,0 +1,23 @@
+{
+  "name": "infracamp/kicker",
+  "type": "project",
+  "license": "mit",
+  "authors": [
+    {
+      "name": "Matthias Leuffen",
+      "email": "matthias@leuffen.de"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Kick\\": "src/"
+    },
+    "files": [
+      "src/functions.inc.php"
+    ]
+  },
+  "require": {
+    "php": ">=7.0",
+    "ext-yaml": "*"
+  }
+}
