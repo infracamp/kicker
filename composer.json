@@ -18,6 +18,7 @@
   },
   "require": {
     "php": ">=7.0",
-    "symfony/yaml": "^3.4"
+    "symfony/yaml": "^3.4",
+    "ext-pcre": "*"
   }
 }
