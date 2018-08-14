@@ -33,7 +33,7 @@ class ConfigWriter
             "VERSION_NUMBER" => trim (exec("git log --oneline | wc -l")),
             "VERSION_COMMIT_ID" => $commitData["abbreviated_commit"],
             "VERSION_DATE" => $commitData["author"]["date"],
-            "VERSION_DATE_COMPACT" => date("YMD-His", strtotime($commitData["author"]["date"])),
+            "VERSION_DATE_COMPACT" => date("Ymd-His", strtotime($commitData["author"]["date"])),
             "VERSION_AUTHOR_NAME" => $commitData["author"]["name"]
         ];
 
