@@ -33,7 +33,7 @@ class ExecBox
             $rProc = proc_open("bash -c 'trap \"kill 0\" EXIT; $cmd 2>&1 > /dev/tty & wait' & echo $! > /tmp/curpid.kick", [], $aPipes);
             proc_close($rProc);
             $this->pids[] = (int) file_get_contents("/tmp/curpid.kick");
-        } else if (preg_match("/^IT\:(.*)$/", $cmd, &$matches)) {
+        } else if (preg_match("/^IT\:(.*)$/", $cmd, $matches)) {
             // Interactive Terminal (Ncurses etc)
             $cmd = $matches[1];
             $pipes = array (NULL, NULL, NULL);
