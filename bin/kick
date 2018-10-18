@@ -1,6 +1,11 @@
 #!/usr/bin/php -n
 <?php
-
+/**
+ *
+ * Features:
+ * - disable xdebug (by calling interpreter with -n to skip module loading)
+ *
+ */
 require __DIR__ . "/../vendor/autoload.php";
 
 
