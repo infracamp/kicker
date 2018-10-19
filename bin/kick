@@ -6,6 +6,9 @@
  * - disable xdebug (by calling interpreter with -n to skip module loading)
  *
  */
+
+dl("json.so");
+
 require __DIR__ . "/../vendor/autoload.php";
 
 
