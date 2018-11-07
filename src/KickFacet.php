@@ -100,7 +100,9 @@ class KickFacet
 
         if ( ! $value = access($this->config, ["command", $cmd])) {
             if (in_array($cmd, ["build", "init", "dev", "run", "interval"])) {
-                Out::warn("No command defined for '$cmd': Ignore!");
+                if ($cmd != "interval") {
+                    Out::warn("No command defined for '$cmd': Ignore!");
+                }
                 return true;
             }
             throw new \InvalidArgumentException("Command '$cmd' not defined.");
