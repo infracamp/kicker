@@ -60,7 +60,6 @@ class KickFacet
 
     public function dispatchCmd ($cmd, array $options)
     {
-        if ($cmd === "")
         switch ($cmd) {
 
             case "":
