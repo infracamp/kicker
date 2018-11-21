@@ -30,7 +30,10 @@ class ExecBox
 
             // Only way to do this: start commands in background and aquire pid by file
             $aPipes = [];
-            $rProc = proc_open("bash -c 'trap \"kill 0\" EXIT; $cmd 2>&1 > /dev/tty & wait' & echo $! > /tmp/curpid.kick", [], $aPipes);
+            $tty = "/dev/tty";
+            if ( ! file_exists($tty))
+                $tty = "/dev/stdout";
+            $rProc = proc_open("bash -c 'trap \"kill 0\" EXIT; $cmd 2>&1 > $tty & wait' & echo $! > /tmp/curpid.kick", [], $aPipes);
             proc_close($rProc);
             $this->pids[] = (int) file_get_contents("/tmp/curpid.kick");
         } else if (preg_match("/^IT\:(.*)$/", $cmd, $matches)) {
