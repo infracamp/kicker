@@ -60,12 +60,25 @@ class KickFacet
 
     public function dispatchCmd ($cmd, array $options)
     {
+        if ($cmd === "")
         switch ($cmd) {
 
             case "":
-                echo "\nContents of kick-yaml:\n";
-                echo file_get_contents($this->yamlFileName);
+            case "help":
+                echo "Kickstart command runner (evaluating /opt/.kick.yml)\n";
+                echo "\nUsage:";
+                echo "\n    kick [command]";
                 echo "\n";
+                echo "\nCommands:";
+
+                foreach ($this->config["command"] as $cmd => $commands) {
+                    echo "\n    $cmd:";
+                    foreach ($commands as $command)
+                    echo "\n    - $command";
+                    echo "\n";
+                }
+
+                echo "\nOr predefined commands: kill, kick_to_env, write_config_file, help\n";
                 return true;
 
             case "kill":
