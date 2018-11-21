@@ -18,6 +18,7 @@ class KickFacet
     const CONF_STATE_FILE = "/tmp/kick.state";
 
     private $workingDir;
+    private $yamlFileName;
     private $config = [];
 
     private $execBox;
@@ -26,6 +27,7 @@ class KickFacet
     {
         if ($startYamlFileName === null)
             $startYamlFileName = "/opt/.kick.yml";
+        $this->yamlFileName = $startYamlFileName;
         $this->workingDir = dirname($startYamlFileName);
         try {
             $this->config = Yaml::parseFile($startYamlFileName);
@@ -59,6 +61,12 @@ class KickFacet
     public function dispatchCmd ($cmd, array $options)
     {
         switch ($cmd) {
+
+            case "":
+                echo "\nContents of kick-yaml:\n";
+                echo file_get_contents($this->yamlFileName);
+                echo "\n";
+                return true;
 
             case "kill":
                 $this->execBox->killAll();
@@ -120,7 +128,7 @@ class KickFacet
     {
         try {
             $call = array_shift($argv);
-            $cmd = array_shift($argv);
+            $cmd = (string)array_shift($argv);
             $this->dispatchCmd($cmd, $argv);
         } catch (\Exception $e) {
             Out::fail("Exception: " . $e->getMessage() . "");
