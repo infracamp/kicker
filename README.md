@@ -11,6 +11,10 @@ This Project is part of the **kickstart-flavor-* ** projects
 version: 1
 from: "from/docker-image"
 
+config_file:
+  template: "config.php.dist"
+  target: "config.php"
+
 env:
   SOME_ENV_VAR: "Some value"
 
