@@ -4,7 +4,7 @@
 
 This Project is part of the **kickstart-flavor-* ** projects
 
-##
+## .kick.yml Reference
 
 
 ```yaml
