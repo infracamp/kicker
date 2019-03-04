@@ -94,6 +94,15 @@ class KickFacet
                     $env = "KICK_" . strtoupper($key) . "=$value";
                     echo "$env\n";
                 }
+
+                if (is_array($this->config["env"])) {
+                    foreach ($this->config["env"] as $eName => $eVal)
+                    {
+                        $env = "$eName=$eVal";
+                        echo "$env\n";
+                    }
+                }
+
                 return true;
 
             case "write_config_file":
