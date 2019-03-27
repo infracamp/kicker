@@ -17,6 +17,7 @@ config_file:
 
 env:
   SOME_ENV_VAR: "Some value"
+  PATH: "/some/path:$PATH"
 
 command:
     command_name1:
