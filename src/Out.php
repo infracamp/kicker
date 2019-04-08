@@ -14,16 +14,19 @@ class Out
 
     public static function log(...$args)
     {
-        echo " + " . implode (" ", $args) . "\n";
+        $str = " + " . implode (" ", $args) . "\n";
+        fwrite(STDERR, $str);
     }
 
     public static function warn(...$args)
     {
-        echo Color::Str("\n[WARN] " . implode (" ", $args), "yellow") . "\n";
+        $str = Color::Str("\n[WARN] " . implode (" ", $args), "yellow") . "\n";
+        fwrite(STDERR, $str);
     }
 
     public static function fail(...$args)
     {
-        echo Color::Str("\n\n[ERR] ". implode (" ", $args) . "\n", "black", "red") . "\n";
+        $str = Color::Str("\n\n[ERR] ". implode (" ", $args) . "\n", "black", "red") . "\n";
+        fwrite(STDERR, $str);
     }
 }

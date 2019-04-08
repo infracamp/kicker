@@ -16,8 +16,8 @@ config_file:
   target: "config.php"
 
 env:
-  SOME_ENV_VAR: "Some value"
-  PATH: "/some/path:$PATH"
+  - SOME_ENV=Some value 
+  - PATH="/some/path:$PATH"
 
 command:
     command_name1:
