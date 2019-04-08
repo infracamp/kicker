@@ -36,8 +36,6 @@ class KickFacet
             throw $e;
         }
 
-
-
         if (file_exists(self::CONF_STATE_FILE)) {
             $this->execBox = unserialize(
                 file_get_contents(self::CONF_STATE_FILE)
@@ -98,8 +96,12 @@ class KickFacet
                 if (is_array($this->config["env"])) {
                     foreach ($this->config["env"] as $eName => $eVal)
                     {
-                        $env = "$eName=$eVal";
-                        echo "$env\n";
+                        if (is_int($eName)) {
+                            echo $eVal . "\n";
+                        } else {
+                            $env = "$eName=$eVal";
+                            echo "$env\n";
+                        }
                     }
                 }
 
