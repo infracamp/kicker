@@ -8,7 +8,7 @@
  */
 
 dl("json.so");
-
+dl("yaml.so");
 require __DIR__ . "/../vendor/autoload.php";
 
 
