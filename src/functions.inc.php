@@ -20,3 +20,22 @@ function access ($input, array $keys, $default=null)
     }
     return $cur;
 }
+
+/**
+ * @param string $filename
+ * @throws InvalidArgumentException
+ * @return mixed
+ */
+function kicker_yaml_parse_file(string $filename)
+{
+    ini_set("yaml.decode_php", "0");
+    $ret = yaml_parse_file($filename);
+    if ($ret === false) {
+        $err = error_get_last();
+        throw new InvalidArgumentException(
+            "Cannot parse yaml-file: '{$filename}' Error: {$err["message"]}",
+            0
+        );
+    }
+    return $ret;
+}
