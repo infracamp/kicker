@@ -8,9 +8,8 @@ command:
 
   build:
     - composer update
-
-
-  #- some link
-  - vbendor bin
   dev:
-  - some prog
+  - echo 'Hello world!'
+
+  fail:
+    - exit 1
