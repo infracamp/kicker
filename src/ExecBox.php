@@ -57,14 +57,14 @@ class ExecBox
             fclose ($in);
             $ret = proc_close ($p);
             if ($ret != 0) {
-                Out::fail("system('$cmd') returned exit-code: '$ret' (defined in .kick.yml {command: $debugCmd:} - see output above for more information)");
+                Out::fail("system('$cmd') returned exit-code $ret (defined in .kick.yml: command:{$debugCmd}: - see output above for more information)");
                 exit ($ret);
             }
         } else {
             Out::log("Exec syncronously: '$cmd'");
             system($cmd, $ret);
             if ($ret != 0) {
-                Out::fail("system('$cmd') returned exit-code: '$ret' (defined in .kick.yml {command: $debugCmd:} - see output above for more information)");
+                Out::fail("system('$cmd') returned exit-code $ret (defined in .kick.yml: command:{$debugCmd}: - see output above for more information)");
                 exit ($ret);
             }
         }
