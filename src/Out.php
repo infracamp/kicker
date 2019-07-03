@@ -28,7 +28,7 @@ class Out
     public static function fail(...$args)
     {
         $caller = implode (" ", $GLOBALS["argv"]);
-        $str = Color::Str("\n\n[ERR] ". implode (" ", $args) . " in '{$caller}'\n", "black", "red") . " \n";
+        $str = Color::Str("\n\n[ERR] ". implode (" ", $args) . " in '{$caller}'\n", "black", "red") . "\n";
         fwrite(STDERR, $str);
     }
 }
