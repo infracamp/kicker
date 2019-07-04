@@ -133,7 +133,7 @@ class KickFacet
                 }
                 return true;
             }
-            throw new \InvalidArgumentException("Command '$cmd' not defined.");
+            throw new \InvalidArgumentException("Command '$cmd' not defined in {$this->yamlFileName}.");
         }
         foreach ($value as $cur) {
             Out::log("Target '$cur': ");
