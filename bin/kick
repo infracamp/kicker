@@ -11,8 +11,12 @@ dl("json.so");
 dl("yaml.so");
 require __DIR__ . "/../vendor/autoload.php";
 
+$kickFile = getenv("KICK_FILE");
+if ($kickFile === false)
+    $kickFile = "/opt/.kick.yml";
 
-$kick = new \Kick\KickFacet();
+
+$kick = new \Kick\KickFacet($kickFile);
 $kick->dispatch($argv);
 
 
