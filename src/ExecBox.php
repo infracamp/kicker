@@ -21,7 +21,7 @@ class ExecBox
 
     private $pids = [];
 
-    public function runBg ($cmd)
+    public function runBg ($cmd, $debugCmd="")
     {
         chdir($this->workingDir);
         if (preg_match("/^D\:(.*)$/", $cmd, $matches)) {
@@ -57,14 +57,14 @@ class ExecBox
             fclose ($in);
             $ret = proc_close ($p);
             if ($ret != 0) {
-                Out::fail("Command '$cmd' returned exit-code: '$ret'");
+                Out::fail("system('$cmd') returned exit-code $ret (defined in .kick.yml: command:{$debugCmd}: - see output above for more information)");
                 exit ($ret);
             }
         } else {
             Out::log("Exec syncronously: '$cmd'");
             system($cmd, $ret);
             if ($ret != 0) {
-                Out::fail("Command '$cmd' returned exit-code: '$ret'");
+                Out::fail("system('$cmd') returned exit-code $ret (defined in .kick.yml: command:{$debugCmd}: - see output above for more information)");
                 exit ($ret);
             }
         }

@@ -20,13 +20,15 @@ class Out
 
     public static function warn(...$args)
     {
-        $str = Color::Str("\n[WARN] " . implode (" ", $args), "yellow") . "\n";
+        $caller = implode (" ", $GLOBALS["argv"]);
+        $str = Color::Str("\n[WARN] "  . implode (" ", $args) . " in '{$caller}'", "yellow") . "\n";
         fwrite(STDERR, $str);
     }
 
     public static function fail(...$args)
     {
-        $str = Color::Str("\n\n[ERR] ". implode (" ", $args) . "\n", "black", "red") . "\n";
+        $caller = implode (" ", $GLOBALS["argv"]);
+        $str = Color::Str("\n\n[ERR] ". implode (" ", $args) . " in '{$caller}'\n", "black", "red") . "\n";
         fwrite(STDERR, $str);
     }
 }

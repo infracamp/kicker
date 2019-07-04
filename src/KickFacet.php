@@ -137,7 +137,7 @@ class KickFacet
         }
         foreach ($value as $cur) {
             Out::log("Target '$cur': ");
-            $this->execBox->runBg($cur);
+            $this->execBox->runBg($cur, $cmd);
         }
 
 
