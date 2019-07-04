@@ -11,7 +11,7 @@ dl("json.so");
 dl("yaml.so");
 require __DIR__ . "/../vendor/autoload.php";
 
-$kickFile = getenv("KICK_FILE");
+$kickFile = getenv("KICK_YML_FILE");
 if ($kickFile === false)
     $kickFile = "/opt/.kick.yml";
 
