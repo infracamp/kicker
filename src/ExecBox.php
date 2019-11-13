@@ -76,7 +76,7 @@ class ExecBox
     {
         foreach ($this->pids as $pid) {
             Out::log("Killing $pid...");
-            \posix_kill($pid, SIGTERM);
+            system("kill -9 $pid");
         }
         $this->pids = [];
     }
