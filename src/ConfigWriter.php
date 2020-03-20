@@ -52,9 +52,14 @@ class ConfigWriter
         $data = file_get_contents($infile);
         $missingEnv = [];
         $versionInfo = self::GetVersionInfo();
-        $parsed = preg_replace_callback("/\%([a-z0-9_]+)%/mi",
+        $parsed = preg_replace_callback("/%(.+?)%/mi",
             function ($matches) use (&$missingEnv, $versionInfo) {
                 $name = $matches[1];
+                $default = null;
+                if (strpos($name, "?") !== false) {
+                    [$name, $default] = explode("?", $name, 2);
+                }
+
                 if (strpos($name, "VERSION_") === 0) {
                     if ( ! isset ($versionInfo[$name]))
                         throw new \InvalidArgumentException("Version info tag '$name' is not available.");
@@ -64,8 +69,12 @@ class ConfigWriter
                 switch ($name) {
                     default:
                         $data = getenv($name);
-                        if ($data === false)
+                        if ($data === false) {
+                            if ($default !== null) {
+                                return $default;
+                            }
                             $missingEnv[] = $name;
+                        }
                         return addslashes($data);
                 }
             }, $data);

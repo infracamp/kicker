@@ -4,6 +4,10 @@ version: 1
 from: "infracamp/kickstart-flavor-base:testing"
 
 
+config_file:
+  template: "test/test.in.txt"
+  target: "/tmp/test.out.txt"
+
 command:
 
   build:
