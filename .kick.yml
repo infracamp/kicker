@@ -5,7 +5,7 @@ from: "infracamp/kickstart-flavor-base:testing"
 
 
 config_file:
-  template: "test/test.in.txt"
+  template: "/opt/test/mock/test.in.txt"
   target: "/tmp/test.out.txt"
 
 command:
@@ -15,5 +15,7 @@ command:
   dev:
   - echo 'Hello world!'
 
+  test:
+    - "vendor/bin/ptest"
   fail:
     - exit 1

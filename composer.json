@@ -23,5 +23,11 @@
     "ext-posix": "*",
     "ext-pcntl": "*",
     "ext-yaml": "*"
+  },
+  "require-dev": {
+    "phore/tester": "dev-master",
+    "phore/core": "dev-master",
+    "phore/system": "dev-master",
+    "phore/filesystem": "dev-master"
   }
 }
