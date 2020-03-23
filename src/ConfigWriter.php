@@ -52,6 +52,9 @@ class ConfigWriter
         $data = file_get_contents($infile);
         $missingEnv = [];
         $versionInfo = self::GetVersionInfo();
+
+        $data = preg_replace("/\\\\%(.+?)\\\\%/mi", "REPLACED", $data);
+
         $parsed = preg_replace_callback("/%(.+?)%/mi",
             function ($matches) use (&$missingEnv, $versionInfo) {
                 $name = $matches[1];

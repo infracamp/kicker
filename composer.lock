@@ -111,12 +111,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-system.git",
-                "reference": "d1679b9f772c40e7a6d3e65e30c9f4e079a06b52"
+                "reference": "bd6e1f2e05d466a4fd429e486468da6ea7b8c44c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-system/zipball/d1679b9f772c40e7a6d3e65e30c9f4e079a06b52",
-                "reference": "d1679b9f772c40e7a6d3e65e30c9f4e079a06b52",
+                "url": "https://api.github.com/repos/phore/phore-system/zipball/bd6e1f2e05d466a4fd429e486468da6ea7b8c44c",
+                "reference": "bd6e1f2e05d466a4fd429e486468da6ea7b8c44c",
                 "shasum": ""
             },
             "require": {
@@ -147,7 +147,7 @@
             ],
             "description": "Execute shell commands",
             "homepage": "https://infracamp.org/project/phore",
-            "time": "2019-12-03T13:48:32+00:00"
+            "time": "2020-03-22T18:32:52+00:00"
         },
         {
             "name": "phore/tester",
