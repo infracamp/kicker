@@ -21,7 +21,7 @@ class Out
     public static function warn(...$args)
     {
         $caller = implode (" ", $GLOBALS["argv"]);
-        $str = Color::Str("\n[WARN] "  . implode (" ", $args) . " in '{$caller}'", "yellow") . "\n";
+        $str = Color::Str("[WARN] "  . implode (" ", $args) . " in '{$caller}'", "yellow") . "\n";
         fwrite(STDERR, $str);
     }
 
