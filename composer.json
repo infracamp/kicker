@@ -24,6 +24,9 @@
     "ext-pcntl": "*",
     "ext-yaml": "*"
   },
+  "bin": [
+    "bin/kick"
+  ],
   "require-dev": {
     "phore/tester": "dev-master",
     "phore/core": "dev-master",
