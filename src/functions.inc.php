@@ -29,7 +29,8 @@ function access ($input, array $keys, $default=null)
 function kicker_yaml_parse_file(string $filename)
 {
     ini_set("yaml.decode_php", "0");
-    $ret = yaml_parse_file($filename);
+    $ret = \Symfony\Component\Yaml\Yaml::parseFile($filename);
+    #$ret = yaml_parse_file($filename);
     if ($ret === false) {
         $err = error_get_last();
         throw new InvalidArgumentException(
