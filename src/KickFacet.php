@@ -86,14 +86,6 @@ class KickFacet
                 foreach ($this->config as $key=>$value) {
                     if (is_array($value))
                         continue;
-
-                    if (strpos($value, "\n") !== false) {
-                        // Multiline Strings: eval "varname=$'Quaoted\nString'" (Dollar is new bash syntax)
-                        // This is for backwards compatibility
-                        $value = "\$" . escapeshellarg($value);
-                        $value = str_replace("\r\n", '\n', $value);
-                        $value = str_replace("\n", '\n', $value);
-                    }
                     $env = "KICK_" . strtoupper($key) . "=$value";
                     echo "$env\n";
                 }

@@ -22,7 +22,7 @@
     "ext-json": "*",
     "ext-posix": "*",
     "ext-pcntl": "*",
-    "symfony/yaml": "5.0.*"
+    "symfony/yaml": "^5.0.4"
   },
   "bin": [
     "bin/kick"
